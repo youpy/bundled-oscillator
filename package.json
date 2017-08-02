@@ -35,12 +35,12 @@
     ],
     "scripts": {
         "watch": "fswatch -E -e flymake.js -e '\\.(jade|scss)$' -i '\\.js$' -r ./src -r ./test | xargs -I{} -n 1 npm run build",
-        "build": "npm run build-to5 && npm run build-browser && npm run build-minify && npm run test",
+        "build": "npm run build-to5 && npm run build-browser && npm run build-minify",
         "build-browser": "browserify ./index.js --standalone BundledOscillator --outfile build/js/bundled_oscillator.js",
         "build-minify": "uglifyjs build/js/bundled_oscillator.js -m -r self -o build/js/bundled_oscillator.min.js",
         "build-to5": "babel src --out-dir lib",
         "livereload": "live-reload --port 9091 build/ example/",
-        "test": "NODE_ENV=test mocha",
+        "test": "npm run build-to5 && NODE_ENV=test mocha",
         "start": "npm run watch & npm run livereload & gulp connect"
     }
 }
