@@ -1,5 +1,5 @@
 import assert from 'power-assert';
-import BundledOscillator from '../lib/bundled_oscillator.js';
+import BundledOscillator from '../index';
 
 describe('BundledOscillator', () => {
   let osc;
