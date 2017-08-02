@@ -1,5 +1,5 @@
 {
-    "name": "bundled-oscillator",
+    "name": "@youpy/bundled-oscillator",
     "version": "0.0.1",
     "description": "A JavaScript library for controlling multiple oscillators at once",
     "main": "index.js",
