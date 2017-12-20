@@ -76,7 +76,7 @@ export default class BundledOscillator {
     this._eachNode((node, amp) => {
       let gain = this.context.createGain();
 
-      gain.gain.value = amp;
+      gain.gain.setValueAtTime(amp, gain.context.currentTime);
       node.connect(gain);
       gain.connect(audioNode);
     });

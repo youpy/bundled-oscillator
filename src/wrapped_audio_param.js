@@ -16,7 +16,7 @@ export class WrappedAudioParam {
 
   set value(value) {
     this._eachParam((param, mul, add) => {
-      param.value = value * mul + add;
+      param.setValueAtTime(value * mul + add, 0);
     });
   }
 
