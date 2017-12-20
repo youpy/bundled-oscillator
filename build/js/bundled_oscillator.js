@@ -78,7 +78,7 @@ var BundledOscillator = function () {
       this._eachNode(function (node, amp) {
         var gain = _this2.context.createGain();
 
-        gain.gain.value = amp;
+        gain.gain.setValueAtTime(amp, gain.context.currentTime);
         node.connect(gain);
         gain.connect(audioNode);
       });
@@ -279,7 +279,7 @@ var WrappedAudioParam = exports.WrappedAudioParam = function () {
     },
     set: function set(value) {
       this._eachParam(function (param, mul, add) {
-        param.value = value * mul + add;
+        param.setValueAtTime(value * mul + add, 0);
       });
     }
   }]);
